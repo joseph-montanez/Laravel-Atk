@@ -1,0 +1,42 @@
+{
+    "name": "joseph-montanez/atk-laravel",
+    "description": "Agile UI and Data integration with Laravel",
+    "keywords": ["laravel", "framework", "agile ui", "agile data"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Joseph Montañez",
+        "email": "sutabi@gmail.com",
+        "homepage": "https://github.com/joseph-montanez"
+    }],
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "atk4/ui": "^1.5",
+        "illuminate/support": "5.5.* || 5.6.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Atk\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Atk\\Laravel\\ServiceProvider"
+            ]
+        }
+    }
+}
