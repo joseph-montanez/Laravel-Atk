@@ -1,7 +1,7 @@
-atk-laravel
+Laravel ATK
 ===============
 
-ATK Laravel is a Laravel integration package for Agile UI & Agile Data.
+Laravel ATK is a Laravel integration package for Agile UI & Agile Data.
 
 ## Installation
 
@@ -52,6 +52,24 @@ To get Agile UI to render you need to return a response, as echoing output has b
             return response($app->run());
         }
     }
+
+#### 3. Using Laravel's Names Routes inside Link
+
+If you depend on Laravel's route named generator then you'll need to use this package's varient of Link. This allows a callback with the record / row data to be passed into your route.
+
+    /**
+     * The User Grid
+     *
+     * @var \atk4\ui\Grid $grid
+     */
+    $grid = $userListColumn->add('Grid');
+    $grid->setModel(new User($atkDb), ['name', 'email', 'phone', 'created_at']);
+    $grid->addDecorator(
+        'name',
+        new \Atk\Laravel\Ui\TableColumn\Link(null, [], function ($row) {
+            return route('admin.user.edit', ['id' => $row['id']]);
+        })
+    );
 
 ### Agile Database Connection
 
