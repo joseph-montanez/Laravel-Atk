@@ -13,7 +13,7 @@ composer require joseph-montanez/atk-laravel
 
 ### Adding Middleware
 
-Agile UI can terminate before `$app->run()` is ever called. As of right now this means an exception is thrown, so to catch the except and return the response middleware is needed.
+Agile UI can terminate before `$app->run()` is ever called. As of right now this means an exception is thrown, so to catch the exception and return the response, Laravel's Middleware is needed.
 
 **Edit `app/Http/Kernel.php`**
 
