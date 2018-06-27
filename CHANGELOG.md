@@ -1,3 +1,8 @@
+# 1.0.3
+
+- Fixed bad namespace
+- Fixed documentation for installing
+
 # 1.0.2
 
 - Added Middleware to catch terminated exception outside of app->run()
