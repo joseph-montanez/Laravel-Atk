@@ -8,7 +8,7 @@ Laravel ATK is a Laravel integration package for Agile UI & Agile Data.
 Begin by installing this package through Composer. Run this command from the Terminal:
 
 ```bash
-composer require joseph-montanez/atk-laravel
+composer require joseph-montanez/laravel-atk
 ```
 
 ### Adding Middleware
