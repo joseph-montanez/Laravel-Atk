@@ -11,11 +11,39 @@ Begin by installing this package through Composer. Run this command from the Ter
 composer require joseph-montanez/atk-laravel
 ```
 
+### Adding Middleware
+
+Agile UI can terminate before `$app->run()` is ever called. As of right now this means an exception is thrown, so to catch the except and return the response middleware is needed.
+
+**Edit `app/Http/Kernel.php`**
+
+    <?php
+    
+    namespace App\Http;
+    
+    use Illuminate\Foundation\Http\Kernel as HttpKernel;
+    
+    class Kernel extends HttpKernel
+    {
+        //....
+    
+        /**
+         * The application's route middleware groups.
+         *
+         * @var array
+         */
+        protected $middlewareGroups = [
+            'web' => [
+                //....
+                // Add this middleware line to web
+                \Atk\Laravel\Middleware\AgileUiTerminated::class,
+            ],
+
 ##Usage
 
 ### Agile UI Integration
 
-There is an app layer designed for Laravel that you need to use in order to leverage Agile UI within a controller.
+This library is an app layer designed for Laravel. You need to use this app layer in order to leverage Agile UI within a controller. If you don't you get 500 errors, cookies and/or sessions may not save and URLs will have `.php` added to them.
 
 
 #### 1. Initialize Agile UI
